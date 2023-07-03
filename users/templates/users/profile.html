@@ -1,0 +1,24 @@
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="content-section">
+    <h> {{ user.name }} </h>
+    
+      <div class="media">
+        <div class="media-body">
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+
+        {% for pic in pics %}
+            <img class="rounded-circle account-img" src="{{ pic.image.url }}">
+    
+        {% endfor %}
+      </div>
+      <!-- FORM HERE -->
+    </div>
+
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2"> {{ object.name }}</a>
+        <small class="text-muted">{{ object.user }}</small>
+        {% if object.user == user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'pic-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'pic-delete' object.id %}">Delete</a>
+          </div>
+        {% else %}
+             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'buy-pic' object.id %}"> Buy</a>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+{% endblock content %}

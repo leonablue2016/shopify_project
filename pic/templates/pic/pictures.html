@@ -1,0 +1,19 @@
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+{% for pic in pics %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ pic.image.url }}" width = "200" height = "200">
+        <div class="media-body">
+
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'pic-detail' pic.id %}">{{ pic.name }} </a>
+          <p class="text-secondary">{{ pic.price }}</p>
+        </div>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+{% endfor %}
+{% endblock content %}
